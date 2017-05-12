@@ -1,0 +1,23 @@
+# nginx rewrite rule
+rewrite ^/test55$   /#/index break;
+rewrite ^/test55/$  /#/index break;
+rewrite ^/test1/$  /a.html permanent;
+rewrite ^/test1$  /a.html permanent;
+
+rewrite ^/99favortaste$   /#/index break;
+rewrite ^/99favortaste/$  /#/index break;
+#rewrite ^/99favortaste/admin$  /admin/#/access/signin?merchantId=M000000186 break;
+#if (!-e $request_filename){
+#rewrite ^/(.*?)/(.*?)$  /$1/index.html?$2 break;
+#}
+
+#error_page 404 @page_not_found;
+location @page_not_found {
+    if ($request_uri ~* .*\.(gif|png|jpg|jpeg|bmp|xml|css|js)$) {
+            break;
+   }
+    rewrite ^/(.*)$ http://m.menusifu.com permanent;
+}
+
+# end nginx rewrite rule
+

@@ -1,0 +1,25 @@
+cat /etc/issue
+cat /etc/redhat-release
+apt-get update,????????:?? /etc/apt/sources.list ? /etc/apt/sources.list.d 
+ps -ef | grep Java
+ps -ed | grep Java
+
+kill id or kill -9 id
+
+netstat -ntld
+
+sudo rm -rf confignginx
+cp /usr/share/zoneinfo/America/Chicago /etc/localtime
+ ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+
+ls /usr/share/zoneinfo/America
+
+history | grep mysql
+ls -lrt
+git diff index.html
+grep merchantJson *
+
+ tail -f /menusifu/lps-api/docker/shared-data/log/appserver.log
+
+docker logs -f --tail=10 xxxx
+            -f tail dev/null

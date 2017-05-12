@@ -1,0 +1,31 @@
+sudo docker logs -f --tail="10"  cb16eadb469f
+docker rmi $(docker images -f "dangling=true" -q)
+tail -f /dev/null
+docker run -d /home:/mnt -it docker.io/schnauzers/vim 
+
+docker run -it --link lps-mongodb:mongo --rm mongo sh -c 'exec mongo "lps-mongodb:27017/menusifu"'
+docker run -it --link lps-mongodb:mongo:3.2 
+-v /home/ec2-user/data/dump:/tmp/dump --rm mongo:3.2 sh -c 'exec mongorestore -h "lps-mongodb:27017"  /tmp/dump'
+
+
+docker login | docker exec -it nodejs bash |docker stop|rm $(docker ps -a -q)
+docker run -d --name data -v  c:/jayruanwork/app:/usr/share/app busybox               
+                                       docker run -d --name data -v /home/jianyeruan/app:/usr/share/app busybox     
+==============================================================================
+docker run -d --volumes-from=data --name mongo -p 27017:27017 jianyeruan/mongo /run.sh mongod --port 27017 --dbpath /data
+docker run -it --volumes-from=data -p 3000:3000 --link mongo:mongo -e APPPATH="LaundryServer" --rm jianyeruan/node /run.sh supervisor app.js
+docker run -d --name=nginx -p 80:80 --volumes-from=data -v c:/jayruanwork/config/nginx:/etc/nginx/conf.d nginx
+docker run --volumes-from=data --link mongo:mongo -e APPPATH="LaundryServer" --rm jianyeruan/node /run.sh node modules/createsuper.js
+
+                                     docker run -d --name=nginx -p 80:80 --volumes-from=data -v /home/jianyeruan/config/nginx:/etc/nginx/conf.d nginx
+
+
+docker run -it --volumes-from=data -p 3999:3999 --link mongo:mongo -e APPPATH="restaurantserver" --rm jianyeruan/node /run.sh supervisor app.js
+
+https://github.com/jianyeruan80/LaundryServer.git
+
+http://blog.csdn.net/wsscy2004/article/details/25878363
+
+https://testerhome.com/topics/2760
+
+docker run  -d --volumes-from=data -p 3999:3999 --link mongo:mongo --name online -e APPPATH="onlineServer"   jianyeruan/node /run.sh supervisor app.js
